@@ -3,52 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemma 多模態影像分析助手</title>
+    <title>Gemma 多模態影像分析助手 - 慕夏藝術風</title>
     <style>
         :root {
-            --bg-color: #f7f5f0;          /* 柔和的米白/亞麻底色 */
-            --card-bg: #ffffff;           /* 純白卡片背景 */
-            --border-color: #e6e2d8;      /* 溫潤的淺灰棕色邊框 */
-            --accent-green: #5b7065;      /* 沉穩的自然莫蘭迪綠 */
-            --accent-warm: #c4826b;       /* 溫暖的陶土橘棕色 */
-            --text-main: #2c3531;         /* 深墨綠灰，柔和不刺眼 */
-            --text-muted: #737c76;        /* 柔和的次要文字色彩 */
+            --mucha-bg-top: #2b3a35;        /* 經典慕夏深孔雀綠 */
+            --mucha-bg-bottom: #4a3b32;     /* 溫潤復古琥珀棕 */
+            --card-bg: rgba(253, 250, 243, 0.95); /* 仿羊皮紙色微透卡片 */
+            --border-gold: #c5a059;       /* 裝飾性古典金邊 */
+            --accent-green: #3d5a4a;      /* 深自然綠 */
+            --accent-terracotta: #a85a32; /* 陶土紅棕 */
+            --text-main: #2c241d;         /* 深沉優雅墨褐 */
+            --text-muted: #6b5c51;        /* 柔和次要文字 */
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
-            max-width: 650px;
+            max-width: 700px;
             margin: 40px auto;
             padding: 20px;
-            background-color: var(--bg-color);
-            /* 加入自然的幾何水彩暈染與植物圖騰氛圍背景 */
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(91, 112, 101, 0.08) 0%, transparent 35%),
-                radial-gradient(circle at 90% 85%, rgba(196, 130, 107, 0.07) 0%, transparent 35%),
-                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%235b7065' fill-opacity='0.02' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+            /* 豐富且具層次的藝術復古漸層背景 */
+            background: linear-gradient(135deg, var(--mucha-bg-top) 0%, #3a3b4a 50%, var(--mucha-bg-bottom) 100%);
             color: var(--text-main);
             min-height: 100vh;
+            position: relative;
+        }
+
+        /* 背景加入浪漫的裝飾性花草光影與幾何線條點綴 */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(197, 160, 89, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(168, 90, 50, 0.15) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 C60 30 70 40 100 50 C70 60 60 70 50 100 C40 70 30 60 0 50 C30 40 40 30 50 0 Z' fill='%23c5a059' fill-opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -1;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 40px 36px;
-            border-radius: 24px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 16px 40px rgba(44, 53, 49, 0.06);
+            padding: 44px 40px;
+            /* 融合慕夏風格的流暢弧線與雙層精緻邊框 */
+            border-radius: 30px 10px 30px 10px;
+            border: 2px solid var(--border-gold);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(197, 160, 89, 0.1);
             position: relative;
             overflow: hidden;
         }
 
-        /* 在卡片右上角加入一抹裝飾性的自然植物 SVG 圖示 */
+        /* 頂部裝飾：模仿慕夏經典的華麗花草藤蔓與圓形裝飾光環 (Halo) */
         .card::before {
             content: "";
             position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 140px;
-            height: 140px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235b7065' opacity='0.08'%3E%3Cpath d='M17.5 2C15 2 13 4 13 6.5c0 .7.2 1.4.5 2L6.5 15c-.6-.3-1.3-.5-2-.5C2 14.5 0 16.5 0 19s2 4.5 4.5 4.5c2.5 0 4.5-2 4.5-4.5 0-.7-.2-1.4-.5-2l7-6.5c.6.3 1.3.5 2 .5 2.5 0 4.5-2 4.5-4.5S20 2 17.5 2zm0 7c-.8 0-1.5-.7-1.5-1.5S16.7 6 17.5 6s1.5.7 1.5 1.5-.7 1.5-1.5 1.5zM4.5 20.5C3.7 20.5 3 19.8 3 19s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5z'/%3E%3C/svg%3E");
+            top: -40px;
+            right: -40px;
+            width: 180px;
+            height: 180px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23c5a059' stroke-width='1.5'%3E%3Ccircle cx='50' cy='50' r='45' stroke-dasharray='4 2' opacity='0.4'/%3E%3Ccircle cx='50' cy='50' r='35' opacity='0.3'/%3E%3Cpath d='M50 5 Q60 25 50 50 Q40 25 50 5' fill='%23c5a059' fill-opacity='0.2'/%3E%3Cpath d='M50 50 Q60 75 50 95 Q40 75 50 50' fill='%23c5a059' fill-opacity='0.2'/%3E%3Cpath d='M5 50 Q25 40 50 50 Q25 60 5 50' fill='%23c5a059' fill-opacity='0.2'/%3E%3Cpath d='M50 50 Q75 40 95 50 Q75 60 50 50' fill='%23c5a059' fill-opacity='0.2'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-size: contain;
             pointer-events: none;
@@ -57,31 +69,35 @@
         .header-title {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             margin-bottom: 8px;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            padding-bottom: 14px;
         }
 
-        /* 標題前的藝術圖示（葉片 SVG） */
+        /* 經典新藝術風格花草圖騰 Icon */
         .header-icon {
-            width: 32px;
-            height: 32px;
-            fill: var(--accent-green);
+            width: 36px;
+            height: 36px;
+            fill: var(--accent-terracotta);
             flex-shrink: 0;
         }
 
         h2 {
             margin: 0;
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             color: var(--accent-green);
-            letter-spacing: 0.5px;
-            font-weight: 600;
+            letter-spacing: 0.8px;
+            font-family: serif; /* 賦予古典藝術感字體氛圍 */
+            font-weight: 700;
         }
 
         p.subtitle {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 28px;
+            margin: 16px 0 28px 0;
             line-height: 1.6;
+            font-style: italic;
         }
 
         .form-group {
@@ -90,11 +106,11 @@
 
         label {
             display: block;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 8px;
             font-size: 0.9rem;
             color: var(--accent-green);
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
         }
 
         input[type="password"],
@@ -103,9 +119,9 @@
         textarea {
             width: 100%;
             padding: 12px 16px;
-            background: #faf9f6;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            background: #ffffff;
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
             box-sizing: border-box;
             color: var(--text-main);
             font-size: 0.95rem;
@@ -114,52 +130,52 @@
 
         input:focus {
             outline: none;
-            border-color: var(--accent-green);
-            background: #ffffff;
-            box-shadow: 0 0 0 3px rgba(91, 112, 101, 0.1);
+            border-color: var(--accent-terracotta);
+            box-shadow: 0 0 0 3px rgba(168, 90, 50, 0.15);
         }
 
         input[type="file"]::file-selector-button {
-            background: #f0ede6;
-            color: var(--accent-green);
-            border: 1px solid var(--border-color);
+            background: #f4ede2;
+            color: var(--accent-terracotta);
+            border: 1px solid var(--border-gold);
             padding: 8px 14px;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.2s;
         }
 
         input[type="file"]::file-selector-button:hover {
-            background: var(--accent-green);
+            background: var(--accent-terracotta);
             color: #ffffff;
-            border-color: var(--accent-green);
+            border-color: var(--accent-terracotta);
         }
 
         button {
-            background: var(--accent-green);
-            color: #ffffff;
-            border: none;
+            background: linear-gradient(135deg, var(--accent-green), #2c3a35);
+            color: #fdfaf3;
+            border: 1px solid var(--border-gold);
             padding: 14px 20px;
             font-weight: 600;
-            border-radius: 12px;
+            border-radius: 8px;
             cursor: pointer;
             width: 100%;
             font-size: 1rem;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 14px rgba(91, 112, 101, 0.22);
+            box-shadow: 0 4px 15px rgba(61, 90, 74, 0.3);
         }
 
         button:hover {
-            background: #4a5c53;
+            background: linear-gradient(135deg, var(--accent-terracotta), #8c4520);
             transform: translateY(-1px);
-            box-shadow: 0 6px 18px rgba(91, 112, 101, 0.32);
+            box-shadow: 0 6px 20px rgba(168, 90, 50, 0.4);
         }
 
         button:disabled {
-            background: #d3d7d4;
-            color: #8c9390;
+            background: #d3d1cb;
+            color: #8c8880;
+            border-color: #bfae99;
             cursor: not-allowed;
             box-shadow: none;
             transform: none;
@@ -173,18 +189,18 @@
         #imagePreview {
             max-width: 100%;
             max-height: 250px;
-            border-radius: 12px;
+            border-radius: 8px;
             display: none;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+            border: 2px solid var(--border-gold);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         }
 
         #result {
             margin-top: 12px;
             padding: 16px;
-            background: #faf9f6;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            background: #ffffff;
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
             white-space: pre-wrap;
             min-height: 60px;
             font-size: 0.95rem;
@@ -196,146 +212,8 @@
 <body>
     <div class="card">
         <div class="header-title">
-            <!-- 藝術葉片圖示 -->
-            <svg class="header-icon" viewBox="0 0 24 24"><path d="M17.5 2C15 2 13 4 13 6.5c0 .7.2 1.4.5 2L6.5 15c-.6-.3-1.3-.5-2-.5C2 14.5 0 16.5 0 19s2 4.5 4.5 4.5c2.5 0 4.5-2 4.5-4.5 0-.7-.2-1.4-.5-2l7-6.5c.6.3 1.3.5 2 .5 2.5 0 4.5-2 4.5-4.5S20 2 17.5 2zm0 7c-.8 0-1.5-.7-1.5-1.5S16.7 6 17.5 6s1.5.7 1.5 1.5-.7 1.5-1.5 1.5zM4.5 20.5C3.7 20.5 3 19.8 3 19s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5z"/></svg>
+            <!-- 慕夏風格花草藤蔓與幾何裝飾圖示 -->
+            <svg class="header-icon" viewBox="0 0 24 24"><path d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M12,4C14.76,4 17.15,5.15 18.86,6.97C17.31,8.37 15.29,9.22 13.06,9.39C11.69,7.67 9.87,6.31 7.77,5.55C9.07,4.56 10.48,4 12,4M5.55,7.77C6.31,9.87 7.67,11.69 9.39,13.06C9.22,15.29 8.37,17.31 6.97,18.86C5.15,17.15 4,14.76 4,12C4,10.48 4.56,9.07 5.55,7.77M12,20C9.24,20 6.85,18.85 5.14,17.03C6.69,15.63 8.71,14.78 10.94,14.61C12.31,16.33 14.13,17.69 16.23,18.45C14.93,19.44 13.52,20 12,20M18.45,16.23C17.69,14.13 16.33,12.31 14.61,10.94C14.78,8.71 15.63,6.69 17.03,5.14C18.85,6.85 20,9.24 20,12C20,13.52 19.44,14.93 18.45,16.23Z"/></svg>
             <h2>Gemma 多模態影像分析助手</h2>
         </div>
-        <p class="subtitle">透過 Hugging Face Router 呼叫 gemma-4-31B-it 模型進行高精度影像辨識與分析。</p>
-
-        <div class="form-group">
-            <label for="apiKey">Hugging Face Token (HF_TOKEN)</label>
-            <input type="password" id="apiKey" placeholder="請輸入您的 HF_TOKEN">
-        </div>
-
-        <div class="form-group">
-            <label for="imageInput">上傳圖片</label>
-            <input type="file" id="imageInput" accept="image/*" onchange="previewSelectedImage(event)">
-            <div id="preview-container">
-                <img id="imagePreview" alt="圖片預覽">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="promptInput">輸入提示詞 (Prompt)</label>
-            <input type="text" id="promptInput" value="Describe this image in one sentence in chinese">
-        </div>
-
-        <button id="submitBtn" onclick="analyzeImage()">啟動分析</button>
-
-        <div class="form-group" style="margin-top: 24px;">
-            <label>模型回應</label>
-            <div id="result">系統待命，尚未開始分析...</div>
-        </div>
-    </div>
-
-    <script>
-        // 選擇圖片時即時顯示預覽
-        function previewSelectedImage(event) {
-            const file = event.target.files[0];
-            const preview = document.getElementById('imagePreview');
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'inline-block';
-                }
-                reader.readAsDataURL(file);
-            } else {
-                preview.src = '';
-                preview.style.display = 'none';
-            }
-        }
-
-        // 壓縮並轉成 Base64 的前端實作
-        function compressImage(file, maxSize = 1024, quality = 0.85) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = new Image();
-                    img.onload = function() {
-                        let width = img.width;
-                        let height = img.height;
-                        if (width > height) {
-                            if (width > maxSize) {
-                                height *= maxSize / width;
-                                width = maxSize;
-                            }
-                        } else {
-                            if (height > maxSize) {
-                                width *= maxSize / height;
-                                height = maxSize;
-                            }
-                        }
-                        const canvas = document.createElement('canvas');
-                        canvas.width = width;
-                        canvas.height = height;
-                        const ctx = canvas.getContext('2d');
-                        ctx.drawImage(img, 0, 0, width, height);
-                        const dataUrl = canvas.toDataURL('image/jpeg', quality);
-                        resolve(dataUrl);
-                    };
-                    img.src = e.target.result;
-                };
-                reader.onerror = reject;
-                reader.readAsDataURL(file);
-            });
-        }
-
-        async function analyzeImage() {
-            const apiKey = document.getElementById('apiKey').value.trim();
-            const imageFile = document.getElementById('imageInput').files[0];
-            let prompt = document.getElementById('promptInput').value.trim();
-            const resultDiv = document.getElementById('result');
-            const submitBtn = document.getElementById('submitBtn');
-
-            if (!apiKey) {
-                alert('請先輸入 Hugging Face Token！');
-                return;
-            }
-            if (!imageFile) {
-                alert('請先上傳一張圖片！');
-                return;
-            }
-            if (!prompt) {
-                prompt = "Describe this image in one sentence.";
-            }
-
-            submitBtn.disabled = true;
-            resultDiv.innerText = '處理中，神經網路運算中...';
-
-            try {
-                const base64Image = await compressImage(imageFile);
-                const response = await fetch("https://router.huggingface.co/v1/chat/completions", {
-                    method: "POST",
-                    headers: {
-                        "Authorization": `Bearer ${apiKey}`,
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        model: "google/gemma-4-31B-it:novita",
-                        messages: [{
-                            role: "user",
-                            content: [
-                                { type: "text", text: prompt },
-                                { type: "image_url", image_url: { url: base64Image } }
-                            ]
-                        }],
-                        max_tokens: 300
-                    })
-                });
-
-                const data = await response.json();
-                if (response.ok && data.choices && data.choices.length > 0) {
-                    resultDiv.innerText = data.choices[0].message.content;
-                } else {
-                    resultDiv.innerText = `發生錯誤：${data.error?.message || JSON.stringify(data)}`;
-                }
-            } catch (error) {
-                resultDiv.innerText = `發生錯誤：${error.message}`;
-            } finally {
-                submitBtn.disabled = false;
-            }
-        }
-    </script>
-</body>
-</html>
+        <p class="subtitle">「新藝術の詩意」——
