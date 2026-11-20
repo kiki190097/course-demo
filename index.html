@@ -99,6 +99,28 @@
             line-height: 1.6;
         }
 
+        .repo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: -12px 0 26px 0;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-terracotta);
+            text-decoration: none;
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            background: rgba(255, 243, 196, 0.7);
+            transition: all 0.2s ease;
+        }
+
+        .repo-link:hover {
+            background: #f2b705;
+            color: #fffaf0;
+            border-color: #c97700;
+        }
+
         .form-group {
             margin-bottom: 22px;
         }
@@ -252,6 +274,8 @@
             <h2>Gemma 多模態分析助手</h2>
         </div>
         <p class="subtitle">向日葵暖陽風格介面，支援影像辨識與語音轉文字（Whisper），再交給 gemma-4-31B-it 做摘要與分析。</p>
+
+        <a class="repo-link" href="https://github.com/kiki190097/course-demo" target="_blank" rel="noopener noreferrer">GitHub 原始碼 ↗</a>
 
         <div class="form-group">
             <label for="imageInput">上傳圖片</label>
